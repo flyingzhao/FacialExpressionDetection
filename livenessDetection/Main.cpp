@@ -17,6 +17,7 @@ string window_name = "faceDetection";
 vector<Rect> detectAndDisplay(Mat frame);
 
 int main(){
+
 	Mat image;
 	image = imread("2.jpg");
 	resize(image,image,Size(320,320));
