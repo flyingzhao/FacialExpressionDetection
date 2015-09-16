@@ -20,7 +20,7 @@ using namespace cv;
 //haarcascade_lefteye_2splits
 //string face_cascade_name="../haarcascades/haarcascade_eye.xml";
 
-
+//frontalEyes35x16
 
 vector<Rect> detectAndDisplay(Mat frame);
 
@@ -32,6 +32,19 @@ int main(){
 	
 	std::vector<Rect> faces;
 	faces=detectAndDisplay(image);
+	//video input
+	//VideoCapture capture;  
+	//capture.open(0);  
+	//while(true)  
+	//{  
+	//	Mat frame;  
+	//	capture>>frame;  
+	//	imshow("readvideo",frame);  
+	//	std::vector<Rect> faces;
+	//	faces=detectAndDisplay(frame);
+
+	//	waitKey(10);  
+	//}  
 
 	waitKey(0);    
 	}
@@ -42,7 +55,7 @@ vector<Rect> detectAndDisplay( Mat frame ){
 	std::vector<Rect> faces;
 	Mat frame_gray;
 	CascadeClassifier face_cascade;
-	string face_cascade_name="../haarcascades/haarcascade_frontalface_alt.xml";
+	string face_cascade_name="../haarcascades/frontalEyes35x16.xml";
 
 	if( !face_cascade.load(face_cascade_name)){ 
 		printf("[error] 无法加载级联分类器文件！\n");
@@ -55,7 +68,8 @@ vector<Rect> detectAndDisplay( Mat frame ){
 	for( int i=0;i<faces.size();i++){
 		
 		Point center(faces[i].x + faces[i].width/2,faces[i].y+faces[i].height/2);
-		ellipse(frame,center,Size(faces[i].width/2,faces[i].height/2),0,0,360,Scalar(0,255,0),4,8,0);	
+		//ellipse(frame,center,Size(faces[i].width/2,faces[i].height/2),0,0,360,Scalar(0,255,0),4,8,0);
+		rectangle(frame,Point(faces[i].x,faces[i].y),Point(faces[i].x+faces[i].width,faces[i].y+faces[i].height),Scalar(0,255,0),4,8,0);
 		imshow("eyes",frame(faces[0]));
 	}
 
