@@ -67,13 +67,19 @@ vector<Rect> detectAndDisplay( Mat frame ){
 	face_cascade.detectMultiScale(frame_gray,faces,1.1,2,0|CV_HAAR_SCALE_IMAGE,Size(30,30));
 	for( int i=0;i<faces.size();i++){
 		
-		Point center(faces[i].x + faces[i].width/2,faces[i].y+faces[i].height/2);
-		//ellipse(frame,center,Size(faces[i].width/2,faces[i].height/2),0,0,360,Scalar(0,255,0),4,8,0);
-		rectangle(frame,Point(faces[i].x,faces[i].y),Point(faces[i].x+faces[i].width,faces[i].y+faces[i].height),Scalar(0,255,0),4,8,0);
+		//Point center(faces[i].x + faces[i].width/2,faces[i].y+faces[i].height/2);
+		//ellipse(frame,center,Size(faces[i].width/2,faces[i].height/2),0,0,360,Scalar(0,255,0),4,8,0);		
 		imshow("eyes",frame(faces[0]));
+		Mat eyeFrame=frame(faces[0]);
+		cvtColor(eyeFrame,eyeFrame,CV_BGR2GRAY);
+		adaptiveThreshold(eyeFrame,eyeFrame,255,ADAPTIVE_THRESH_MEAN_C,THRESH_BINARY_INV,7,17);
+		imshow("eyesThreshold",eyeFrame);
+		float a=10*countNonZero(eyeFrame)/float(eyeFrame.rows*eyeFrame.cols);
+		cout<<a;
+		rectangle(frame,Point(faces[i].x,faces[i].y),Point(faces[i].x+faces[i].width,faces[i].y+faces[i].height),Scalar(0,255,0),4,8,0);
 	}
 
-	cout<<faces.size();
+	//cout<<faces.size();
 	imshow("face_detection",frame);
 	
 	return faces;
