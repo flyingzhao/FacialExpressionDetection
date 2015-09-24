@@ -18,20 +18,7 @@ using namespace std;
 using namespace cv;
 using namespace StatModel;
 
-//string face_cascade_name = "../haarcascades/haarcascade_frontalface_alt.xml";
-//haarcascade_eye
-//haarcascade_eye_tree_eyeglasses
-//haarcascade_lefteye_2splits
-//haarcascade_mcs_eyepair_small
-//haarcascade_mcs_eyepair_big
-//haarcascade_mcs_lefteye
-//haarcascade_mcs_righteye
-//haarcascade_righteye_2splits  perform good
-//haarcascade_lefteye_2splits
-//string face_cascade_name="../haarcascades/haarcascade_eye.xml";
 
-//frontalEyes35x16
-//
 //vector<Rect> detectAndDisplay(Mat frame);
 //vector<Rect> detectFaces(Mat frame);
 
@@ -72,11 +59,24 @@ vector<Rect> detectAndDisplay( Mat frame ){
 
 int drawASM(Mat frame,vector<Rect> faces){
 	imshow("ASM",frame);
-	imshow("asmface",frame(faces[0]));
+	/*imshow("asmface",frame(faces[0]));*/
 	ASMModel asmModel;
-	asmModel.loadFromFile("../data/color_asm68.model");
+	//asmModel.loadFromFile("../data/color_asm68.model");
+	asmModel.loadFromFile("../data/grayall_asm.model");
 	vector < ASMFitResult > fitResult = asmModel.fitAll(frame, faces);
-	asmModel.showResult(frame, fitResult);
+	//asmModel.showResult(frame, fitResult);
+	vector< Point_<int> > V;
+	for (int i=0;i<(int)fitResult.size();i++)
+	{
+		fitResult[i].toPointList(V);//有待改进成多个人脸
+	}
+	cout<<V.size();
+	for (int j = 48; j < 60; j++)//0-14脸部轮廓 15-26眉毛 27-36眼睛 37-47鼻子 48-59嘴巴 共60个点
+	{
+		cout<<j<<" "<<V[j].x<<" "<<V[j].y<<endl;
+		circle(frame,V[j],4,Scalar(0,255,0));
+	}
+
 	return 0;
 }
 
@@ -97,8 +97,6 @@ vector<Rect> detectFaces(Mat frame){
 	for( int i=0;i<(int)faces.size();i++){	
 	
 		imshow("faces",frame(faces[i]));
-		
-
 	    rectangle(frame,faces[i],Scalar(0,255,0),4,8,0);
 
 	}
@@ -109,7 +107,8 @@ vector<Rect> detectFaces(Mat frame){
 int main(){
 
 	Mat img,image;
-	img= imread("4.jpg");
+	img= imread("C:\\Users\\zhao\\Downloads\\jaffeimages\\jaffe\\KA.AN1.39.tiff");
+	//img= imread("4.jpg");
 	resize(img,image,Size(320,320));
 
 	std::vector<Rect> eyes,faces;
@@ -129,7 +128,6 @@ int main(){
 	//	waitKey(10);  
 	//}  
 	//imshow("facess",img(faces[0]));
-	StatModel::ASMModel asmModel;
 
 	waitKey(0);    
 }
