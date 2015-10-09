@@ -80,6 +80,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\gabor\GaborFR.cpp" />
     <ClCompile Include="..\lib\afreader.cpp" />
     <ClCompile Include="..\lib\asmmodel.cpp" />
     <ClCompile Include="..\lib\modelfile.cpp" />
@@ -91,6 +92,7 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\gabor\GaborFR.h" />
     <ClInclude Include="..\lib\afreader.h" />
     <ClInclude Include="..\lib\asmmodel.h" />
     <ClInclude Include="..\lib\modelfile.h" />
