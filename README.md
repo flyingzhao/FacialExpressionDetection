@@ -15,7 +15,7 @@
 流程图<br/>
 ![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/diagram.PNG)
 ASM特征点标记(提取60个特征点)<br>
-![image]((https://github.com/flyingzhao/livenessDetection/blob/master/demo/ASMModel.PNG)
+![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/ASMModel.PNG)
 Gabor特征提取（5个尺度，8个方向）<br/>
 ![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/6.PNG)
 特征向量生成（2400维）<br/>
