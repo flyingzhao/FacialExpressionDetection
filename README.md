@@ -1,14 +1,24 @@
-#Liveness Detection
-<strong>Blink-based liveness detection for anti-spoofing in face recognition</strong><br>
-Platform: Windows 7<br>
-Development Environment: Visual Studio 2012<br>
-Library: 
+#表情识别
+<strong>基于ASM和Gabor的人脸表情识别</strong><br>
+平台: Windows 7<br>
+集成开发环境: Visual Studio 2012<br>
+库: 
 <ul>
 <li>OpenCV2.4.10</li>
 <li>asmlib</li>
 </ul>
-Tools：
+工具：
 <ul>
 <li>CMake</li>
 <li>VisualAssistX</li>
 </ul>
+流程图<br/>
+![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/diagram.PNG)
+ASM特征点标记(提取60个特征点)<br>
+![image]((https://github.com/flyingzhao/livenessDetection/blob/master/demo/ASMModel.PNG)
+Gabor特征提取（5个尺度，8个方向）<br/>
+![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/6.PNG)
+特征向量生成（2400维）<br/>
+![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/feature.PNG)
+分类器训练（使用SVM）<br/>
+![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/svm.PNG)

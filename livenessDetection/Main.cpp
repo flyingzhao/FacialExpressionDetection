@@ -37,6 +37,7 @@ vector<Rect> detectAndDisplay( Mat frame ){
 	cvtColor(frame,frame_gray,CV_BGR2GRAY);
 	equalizeHist(frame_gray,frame_gray);
 
+
 	face_cascade.detectMultiScale(frame_gray,eyes,1.1,2,0|CV_HAAR_SCALE_IMAGE,Size(30,30));
 	for( int i=0;i<(int)eyes.size();i++){
 		
@@ -171,7 +172,7 @@ vector<Rect> detectFaces(Mat frame){
 int main(){
 
 	Mat img,image;
-	for (int l = 27; l < 30; l++)
+	for (int l = 1; l < 27; l++)
 	{
 		string filename;
 		char buf[50];
@@ -182,9 +183,20 @@ int main(){
 		std::vector<Rect> eyes,faces;
 		faces=detectFaces(img);
 	}
-	//img= imread("..\\jaffe\\angry\\KA.AN2.40.tiff");
-	//resize(img,image,Size(320,320));
 
+	/*img= imread("..\\jaffe\\happy\\1.tiff");
+	imshow("1",img);
+	std::vector<Rect> eyes,faces;
+	eyes=detectAndDisplay(img);
+	*/
+	//img= imread("..\\jaffe\\happy\\1.tiff");
+	//imshow("1",img);
+	//std::vector<Rect> eyes,faces;
+	//eyes=detectAndDisplay(img);
+
+
+	//faces=detectFaces(img);
+	//resize(img,image,Size(320,320));
 	//std::vector<Rect> eyes,faces;
 	//eyes=detectAndDisplay(image);
 	//faces=detectFaces(img);

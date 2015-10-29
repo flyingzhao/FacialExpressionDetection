@@ -11,7 +11,7 @@ int WriteIntoTxt(int filetowrite[2400]){
 	std::ofstream ofile;
 	ofile.open("2.txt",ios::out|ios::app);
 	for(int i=0;i<2400;i++){
-		if(i==0) ofile<<"0 "<<i<<":"<<filetowrite[i]<<" ";
+		if(i==0) ofile<<"-1 "<<i<<":"<<filetowrite[i]<<" ";
 		if(i!=2399&&i!=0) ofile<<i<<":"<<filetowrite[i]<<" ";
 		if(i==2399) {ofile<<i<<":"<<filetowrite[i]<<'\n';}
 	}
