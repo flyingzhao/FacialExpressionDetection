@@ -1,4 +1,7 @@
 #表情识别
+
+[English Version](https://github.com/flyingzhao/FacialExpressionDetection/blob/master/English.md)
+
 <strong>基于ASM和Gabor的人脸表情识别</strong><br>
 平台: Windows 7<br>
 集成开发环境: Visual Studio 2012<br>
