@@ -1,7 +1,5 @@
 #Expression recognition
 
---------------
-
 Facial expression recognition with ASM and Gabor
 
 ##Platform
