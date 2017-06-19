@@ -1,4 +1,4 @@
-#表情识别
+# 表情识别
 
 [English Version](https://github.com/flyingzhao/FacialExpressionDetection/blob/master/English.md)
 
@@ -15,13 +15,23 @@
 <li>CMake</li>
 <li>VisualAssistX</li>
 </ul>
+
 流程图<br/>
+
 ![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/diagram.png)<br>
+
 ASM特征点标记(提取60个特征点)<br>
+
 ![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/ASMModel.PNG)<br>
+
 Gabor特征提取（5个尺度，8个方向）<br/>
+
 ![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/6.PNG)<br>
+
 特征向量生成（2400维）<br/>
+
 ![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/feature.PNG)<br>
+
 分类器训练（使用SVM）<br/>
+
 ![image](https://github.com/flyingzhao/livenessDetection/blob/master/demo/svm.PNG)<br>
